@@ -5,6 +5,28 @@ package App;
  */
 public class Main {
 
+    interface MyInnerInterface{
+        void run();
+        void jump();
+
+        static void makeNoise() {
+            System.out.println("make noise");
+        }
+    }
+
+    static class MyInnerClass implements MyInnerInterface {
+        @Override
+        public void run() {
+            System.out.println("run");
+
+        }
+
+        @Override
+        public void jump() {
+            System.out.println("jump");
+        }
+    }
+
     static class Inner{
 
         public String getName() {
@@ -29,6 +51,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        MyInnerInterface.makeNoise();
+
         Inner.doNothing();
 
         Inner inner = new Inner();
@@ -36,6 +60,11 @@ public class Main {
 
         Main main = new Main();
         main.doSomething();
+
+        MyInnerClass m = new MyInnerClass();
+        m.jump();
+        m.run();
+
     }
 
     public void doSomething() {

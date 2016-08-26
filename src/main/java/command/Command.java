@@ -5,8 +5,4 @@ package command;
  */
 public interface Command {
     public void execute();
-
-    default String test() {
-        return "Hello";
-    }
 }
